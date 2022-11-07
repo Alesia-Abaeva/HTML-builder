@@ -62,7 +62,7 @@ const createHtml = async (components, template, output) => {
     const tags = [...templateHtml.matchAll(/{{(.*)}}/g)];
 
     for (let elem of tags) {
-      const pathComponent = join(components, `${elem[1]}.html`); //переименовать переменную
+      const pathComponent = join(components, `${elem[1]}.html`);
       const content = await readFile(pathComponent);
       templateHtml = templateHtml.replace(elem[0], content);
     }
